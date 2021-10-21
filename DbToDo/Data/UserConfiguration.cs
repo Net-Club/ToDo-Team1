@@ -11,7 +11,7 @@ namespace DbToDo.Data
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.HasKey(k => k.UsedId);
+            builder.HasKey(k => k.UserId);
             builder.Property(n => n.Name).IsRequired().HasMaxLength(30);
         }
     }
