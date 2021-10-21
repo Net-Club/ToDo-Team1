@@ -7,6 +7,12 @@ namespace ToDo
 {
     public class ToDoService : IToDoService
     {
+        private readonly IToDoService _todo;
+
+        public ToDoService (IToDoService todo)
+        {
+            _todo = todo;
+        }
         public void Create()
         {
             throw new NotImplementedException();
