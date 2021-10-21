@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ToDo
 {
-    interface IToDoService
+    public interface IToDoService
     {
         void Create();
         void Read();

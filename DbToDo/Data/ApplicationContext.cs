@@ -7,7 +7,7 @@ using ToDo.Models;
 
 namespace DbToDo
 {
-    class ApplicationContext : DbContext
+    public class ApplicationContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Category> Categories { get; set; }
