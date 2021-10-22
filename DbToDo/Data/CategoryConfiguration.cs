@@ -12,7 +12,7 @@ namespace DbToDo.Data
         public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.HasKey(k => k.CategoryID);
-            builder.Property(n => n.Name).IsRequired().HasMaxLength(30);
+            builder.Property(n => n.CategoryName).IsRequired().HasMaxLength(30);
         }
     }
 }
