@@ -1,11 +1,11 @@
-﻿using DbToDo.Data;
+﻿using ToDo.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using ToDo.Models;
 
-namespace DbToDo
+namespace ToDo
 {
     public class ApplicationContext : DbContext
     {
@@ -22,6 +22,8 @@ namespace DbToDo
         {
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new TaskConfiguration());
+            modelBuilder.ApplyConfiguration(new StatusConfiguration());
             modelBuilder.Entity<User>().HasData(
             new User[]
             {
