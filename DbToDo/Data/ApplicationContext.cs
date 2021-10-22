@@ -22,6 +22,13 @@ namespace DbToDo
         {
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.Entity<User>().HasData(
+            new User[]
+            {
+                new User { UserId=1, Name="Vladyslav"},
+                new User { UserId=2, Name="Nazar"},
+                new User { UserId=3, Name="Volodymyr"},
+            });
         }
     }
 }
