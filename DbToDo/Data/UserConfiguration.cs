@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using ToDo.Models;
 
-namespace DbToDo.Data
+namespace ToDo.Data
 {
     class UserConfiguration : IEntityTypeConfiguration<User>
     {

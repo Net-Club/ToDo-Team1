@@ -10,7 +10,6 @@ namespace ToDo.Models
         public int TaskID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public bool IsCompleted { get; set; }
         public DateTime DeadLine { get; set; }
 
         public int CategoryId { get; set; }
@@ -18,5 +17,8 @@ namespace ToDo.Models
 
         public int UserId { get; set; }
         public User User { get; set; }
+
+        public int StatusId { get; set; }
+        public Status Status { get; set; }
     }
 }

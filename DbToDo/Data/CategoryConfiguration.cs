@@ -5,14 +5,14 @@ using System.Collections.Generic;
 using System.Text;
 using ToDo.Models;
 
-namespace DbToDo.Data
+namespace ToDo.Data
 {
     class CategoryConfiguration : IEntityTypeConfiguration<Category>
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.HasKey(k => k.CategoryID);
-            builder.Property(n => n.CategoryName).IsRequired().HasMaxLength(30);
+            builder.Property(n => new { n.CategoryName, n.PriorityName }).IsRequired().HasMaxLength(30);
         }
     }
 }
