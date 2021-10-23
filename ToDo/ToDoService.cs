@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,14 +27,24 @@ namespace ToDo
             await _context.SaveChangesAsync();
         }
 
-        public void Read()
+
+        public async Task ReadTaskItemAsync(Guid TaskId)
         {
-            throw new NotImplementedException();
+            await _context.Tasks.FindAsync(TaskId);
+            await _context.SaveChangesAsync();
         }
 
-        public void Update()
+        public async Task UpdateTaskItemAsync(TaskItem taskItem)
         {
-            throw new NotImplementedException();
+            _context.Entry(taskItem).State = EntityState.Modified;
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw new NotImplementedException();
+            }
         }
 
         public async Task DeleteTaskItemAsync(int TaskId)
