@@ -16,6 +16,15 @@ namespace ToDo
             _context = context;
         }
 
+        public async Task<IEnumerable<TaskItem>> GetAllAsync(int page, int pageCount)
+        {
+            IEnumerable<TaskItem> result = _context.Tasks.ToList();
+
+            result = result.Skip(page * pageCount).Take(pageCount);
+
+            return result;
+        }
+
         public async Task<TaskItem> GetTaskItemAsync (int TaskId)
         {
             var task = await _context.Tasks.FindAsync(TaskId);
