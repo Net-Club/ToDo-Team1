@@ -25,6 +25,6 @@ namespace ToDo.Models
         public CategorySelector CategoryName { get; set; }
         public PrioritySelector PriorityName { get; set; }
 
-        public List<Task> Tasks { get; set; }
+        public List<TaskItem> Tasks { get; set; }
     }
 }

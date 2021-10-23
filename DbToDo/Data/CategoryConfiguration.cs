@@ -12,7 +12,7 @@ namespace ToDo.Data
         public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.HasKey(k => k.CategoryID);
-            builder.Property(n => new { n.CategoryName, n.PriorityName }).IsRequired().HasMaxLength(30);
+            builder.Property(n => new { n.CategoryName, n.PriorityName }).IsRequired();
         }
     }
 }

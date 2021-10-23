@@ -10,6 +10,6 @@ namespace ToDo.Models
         public int UserId { get; set; }
         public string Name { get; set; }
 
-        public List<Task> Tasks { get; set; }
+        public List<TaskItem> Tasks { get; set; }
     }
 }

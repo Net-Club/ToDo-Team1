@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ToDo.Models
 {
-    public class Task
+    public class TaskItem
     {
         public int TaskID { get; set; }
         public string Name { get; set; }

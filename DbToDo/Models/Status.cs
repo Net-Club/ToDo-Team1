@@ -17,7 +17,7 @@ namespace ToDo.Models
         public int StatusId { get; set; }
         public StatusEnum StatusEnum { get; set; }
 
-        public List<Task> Tasks { get; set; }
+        public List<TaskItem> Tasks { get; set; }
     }
 }
 
