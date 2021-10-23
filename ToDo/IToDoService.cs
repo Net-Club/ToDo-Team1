@@ -10,6 +10,6 @@ namespace ToDo
         void Create();
         void Read();
         void Update(); 
-        void Delete();
+        Task DeleteTaskItemAsync (int TaskId);
     }
 }

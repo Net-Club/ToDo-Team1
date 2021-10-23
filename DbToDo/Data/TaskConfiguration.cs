@@ -7,9 +7,9 @@ using ToDo.Models;
 
 namespace ToDo.Data
 {
-    class TaskConfiguration : IEntityTypeConfiguration<Task>
+    class TaskConfiguration : IEntityTypeConfiguration<TaskItem>
     {
-        public void Configure(EntityTypeBuilder<Task> builder)
+        public void Configure(EntityTypeBuilder<TaskItem> builder)
         {
             builder.HasKey(k => k.TaskID);
             builder.HasOne(n => n.Category).WithMany(f => f.Tasks).HasForeignKey(n => n.CategoryId);
