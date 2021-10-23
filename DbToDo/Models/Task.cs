@@ -7,7 +7,7 @@ namespace ToDo.Models
 {
     public class TaskItem
     {
-        public int TaskID { get; set; }
+        public int TaskId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime DeadLine { get; set; }
