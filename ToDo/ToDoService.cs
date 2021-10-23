@@ -20,9 +20,10 @@ namespace ToDo
             var task = await _context.Tasks.FindAsync(TaskId);
             return task;
         }
-        public void Create()
+        public async Task CreateTaskItemAsync(TaskItem taskItem)
         {
-            throw new NotImplementedException();
+            await _context.Tasks.AddAsync(taskItem);
+            await _context.SaveChangesAsync();
         }
 
         public void Read()
