@@ -12,11 +12,9 @@ namespace ToDo.Controllers
     public class TaskItemController : ControllerBase
     {
         private readonly IToDoService _toDoService;
-        private readonly ApplicationContext _dataBase;
-        public TaskItemController(IToDoService toDoService, ApplicationContext dataBase)
+        public TaskItemController(IToDoService toDoService)
         {
             _toDoService = toDoService;
-            _dataBase = dataBase;
         }
 
         [HttpGet]
@@ -38,7 +36,7 @@ namespace ToDo.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateTodo([FromBody] TaskItem newTask)
+        public async Task<IActionResult> CreateTaskItem([FromBody] TaskItem newTask)
         {
             if (!ModelState.IsValid)
             {
