@@ -8,9 +8,5 @@
     <ProjectReference Include="..\DbToDO\DbToDo.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 
 </Project>
