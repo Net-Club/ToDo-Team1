@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ToDo.Models;
 
 namespace ToDo.Controllers
 {
@@ -14,6 +15,18 @@ namespace ToDo.Controllers
         public TaskItemController(IToDoService toDoService)
         {
             _toDoService = toDoService;
+        }
+
+        [HttpGet]
+        public async Task ReadTaskItem(int TaskId)
+        {
+            await _toDoService.ReadTaskItemAsync(TaskId);
+        }
+
+        [HttpPut]
+        public async Task UpdateTaskItem(TaskItem taskItem)
+        {
+            await _toDoService.UpdateTaskItemAsync(taskItem);
         }
 
         [HttpDelete("{TaskId:int}")]
