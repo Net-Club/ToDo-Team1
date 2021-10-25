@@ -15,14 +15,11 @@ namespace ToDo
         {
             _context = context;
         }
-
-        public async Task<IEnumerable<TaskItem>> GetAllAsync(int page, int pageCount)
+        public async Task<IEnumerable<TaskItem>> GetUsersAsync()
         {
-            IEnumerable<TaskItem> result = _context.Tasks.ToList();
+            IEnumerable<TaskItem> tasks = await _context.Tasks.ToListAsync();
 
-            result = result.Skip(page * pageCount).Take(pageCount);
-
-            return result;
+            return tasks;
         }
 
         public async Task<TaskItem> GetTaskItemAsync (int TaskId)

@@ -11,9 +11,9 @@ namespace ToDo.Data
     {
         public void Configure(EntityTypeBuilder<TaskItem> builder)
         {
-            builder.HasKey(k => k.TaskID);
+            builder.HasKey(k => k.TaskId);
             builder.HasOne(n => n.Category).WithMany(f => f.Tasks).HasForeignKey(n => n.CategoryId);
-            builder.HasOne(n => n.User).WithMany(f => f.Tasks).HasForeignKey(n => n.TaskID);
+            builder.HasOne(n => n.User).WithMany(f => f.Tasks).HasForeignKey(n => n.TaskId);
             builder.HasOne(n => n.Status).WithMany(f => f.Tasks).HasForeignKey(n => n.StatusId);
         }
     }
