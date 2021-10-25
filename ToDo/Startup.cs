@@ -30,7 +30,7 @@ namespace ToDo
             services.AddScoped<IToDoService, ToDoService>();
 
             services.AddDbContext<ApplicationContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("DatabaseToDo")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("DbToDo")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
