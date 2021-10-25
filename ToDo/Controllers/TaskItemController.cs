@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ToDo.Models;
 
 namespace ToDo.Controllers
 {
@@ -11,9 +12,11 @@ namespace ToDo.Controllers
     public class TaskItemController : ControllerBase
     {
         private readonly IToDoService _toDoService;
-        public TaskItemController(IToDoService toDoService)
+        private readonly ApplicationContext _dataBase;
+        public TaskItemController(IToDoService toDoService, ApplicationContext dataBase)
         {
             _toDoService = toDoService;
+            _dataBase = dataBase;
         }
 
         [HttpDelete("{TaskId:int}")]
@@ -21,5 +24,18 @@ namespace ToDo.Controllers
         {
             await _toDoService.DeleteTaskItemAsync(TaskId);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateTodo([FromBody] TaskItem newTask)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+           await _toDoService.CreateTaskItemAsync(newTask);
+
+           return Ok();
+        }
+
     }
 }
