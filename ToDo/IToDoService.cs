@@ -12,7 +12,7 @@ namespace ToDo
         Task ReadTaskItemAsync(int TaskId);
         Task UpdateTaskItemAsync(TaskItem taskItem);
         Task DeleteTaskItemAsync (int TaskId);
-        Task<IEnumerable<TaskItem>> GetUsersAsync();
+        Task<IEnumerable<TaskItem>> GetTasksAsync();
         Task<TaskItem> GetTaskItemAsync(int TaskId);
     }
 }
