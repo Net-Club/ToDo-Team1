@@ -36,8 +36,9 @@ namespace ToDo.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateTaskItem([FromBody] TaskItem newTask)
+        public async Task<IActionResult> CreateTaskItem()
         {
+            TaskItem newTask = new TaskItem();
             if (!ModelState.IsValid)
             {
                 return BadRequest();
