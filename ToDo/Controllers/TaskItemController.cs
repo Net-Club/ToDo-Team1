@@ -19,9 +19,9 @@ namespace ToDo.Controllers
         }
 
         [HttpGet]
-        public async Task ReadTaskItem(int TaskId)
+        public async Task ReadTaskItem(TaskItem taskItem)
         {
-            await _toDoService.ReadTaskItemAsync(TaskId);
+            await _toDoService.ReadTaskItemAsync(taskItem);
         }
 
         [HttpPut]

@@ -45,9 +45,9 @@ namespace ToDo
         }
 
 
-        public async Task ReadTaskItemAsync(int TaskId)
+        public async Task ReadTaskItemAsync(TaskItem taskItem)
         {
-            await _context.Tasks.FindAsync(TaskId);
+            await _context.Tasks.FindAsync(taskItem);
             await _context.SaveChangesAsync();
         }
 
