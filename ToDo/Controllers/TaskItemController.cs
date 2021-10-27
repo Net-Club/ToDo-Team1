@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ToDo.Models;
+using ToDo.Request;
 
 namespace ToDo.Controllers
 {
@@ -36,15 +37,13 @@ namespace ToDo.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateTaskItem()
+        public async Task<IActionResult> CreateTaskItem(TaskItemRequest taskItemRequest)
         {
-            TaskItem newTask = new TaskItem();
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
-           await _toDoService.CreateTaskItemAsync(newTask);
-
+           await _toDoService.CreateTaskItemAsync(taskItemRequest);
            return Ok();
         }
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ToDo.Models;
+using ToDo.Request;
 
 namespace ToDo
 {
@@ -28,8 +29,17 @@ namespace ToDo
             var task = await _context.Tasks.FindAsync(TaskId);
             return task;
         }
-        public async Task CreateTaskItemAsync(TaskItem taskItem)
+        public async Task CreateTaskItemAsync(TaskItemRequest taskItemRequest)
         {
+            var taskItem = new TaskItem() {
+                Name = taskItemRequest.Name,
+                Description = taskItemRequest.Description,
+                DeadLine = taskItemRequest.DeadLine,
+                Category = taskItemRequest.Category,
+                Status = taskItemRequest.Status,
+                Priority = taskItemRequest.Priority,
+                UserId = taskItemRequest.UserId
+            };
             await _context.Tasks.AddAsync(taskItem);
             await _context.SaveChangesAsync();
         }

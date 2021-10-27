@@ -9,7 +9,7 @@ namespace ToDo.Models
     {
         Work,
         Home,
-        Stady,
+        Study,
         SadGorod
     }
     public enum PrioritySelector
@@ -18,13 +18,5 @@ namespace ToDo.Models
         Important,
         Medium,
         Low
-    }
-    public class Category
-    {
-        public int CategoryID { get; set; }
-        public CategorySelector CategoryName { get; set; }
-        public PrioritySelector PriorityName { get; set; }
-
-        public List<TaskItem> Tasks { get; set; }
     }
 }
