@@ -24,10 +24,10 @@ namespace ToDo.Controllers
             await _toDoService.ReadTaskItemAsync(TaskId);
         }
 
-        [HttpPut]
-        public async Task UpdateTaskItem(TaskItem taskItem)
+        [HttpPut("{TaskId:int}")]
+        public async Task UpdateTaskItem(int TaskId, TaskItemRequest taskItemRequest)
         {
-            await _toDoService.UpdateTaskItemAsync(taskItem);
+            await _toDoService.UpdateTaskItemAsync(TaskId, taskItemRequest);
         }
 
         [HttpDelete("{TaskId:int}")]

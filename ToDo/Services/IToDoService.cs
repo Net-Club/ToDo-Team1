@@ -11,7 +11,7 @@ namespace ToDo
     {
         Task CreateTaskItemAsync(TaskItemRequest taskItemRequest);
         Task ReadTaskItemAsync(int TaskId);
-        Task UpdateTaskItemAsync(TaskItem taskItem);
+        Task UpdateTaskItemAsync(int TaskId, TaskItemRequest taskItemRequest);
         Task DeleteTaskItemAsync (int TaskId);
         Task<IEnumerable<TaskItem>> GetTasksAsync();
         Task<TaskItem> GetTaskItemAsync(int TaskId);

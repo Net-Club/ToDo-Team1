@@ -51,9 +51,13 @@ namespace ToDo
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateTaskItemAsync(TaskItem taskItem)
+        public async Task UpdateTaskItemAsync(int TaskId, TaskItemRequest taskItemRequest)
         {
-            _context.Entry(taskItem).State = EntityState.Modified;
+            var task = await GetTaskItemAsync(TaskId);
+            task.Name = taskItemRequest.Name;
+            task.Description = taskItemRequest.Description;
+            task.DeadLine = taskItemRequest.DeadLine;
+            _context.Entry(task).State = EntityState.Modified;
             try
             {
                 await _context.SaveChangesAsync();
