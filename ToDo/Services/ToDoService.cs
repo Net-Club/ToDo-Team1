@@ -23,7 +23,6 @@ namespace ToDo
 
             return task;
         }
-
         public async Task<TaskItem> GetTaskItemAsync (int TaskId)
         {
             var task = await _context.Tasks.FindAsync(TaskId);
@@ -43,7 +42,6 @@ namespace ToDo
             await _context.Tasks.AddAsync(taskItem);
             await _context.SaveChangesAsync();
         }
-
 
         public async Task ReadTaskItemAsync(int TaskId)
         {

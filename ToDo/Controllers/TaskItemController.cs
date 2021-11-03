@@ -24,6 +24,13 @@ namespace ToDo.Controllers
             await _toDoService.ReadTaskItemAsync(TaskId);
         }
 
+        [HttpGet]
+        public async Task<IEnumerable<TaskItem>> GetTasks()
+        {
+            var tasks = await _toDoService.GetTasksAsync();
+            return tasks;
+        }
+
         [HttpPut("{TaskId:int}")]
         public async Task UpdateTaskItem(int TaskId, TaskItemRequest taskItemRequest)
         {
@@ -46,6 +53,5 @@ namespace ToDo.Controllers
            await _toDoService.CreateTaskItemAsync(taskItemRequest);
            return Ok();
         }
-
     }
 }
