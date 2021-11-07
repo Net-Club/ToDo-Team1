@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ToDo.Models;
+using ToDo.Request;
 
 namespace ToDo
 {
@@ -22,18 +23,25 @@ namespace ToDo
 
             return task;
         }
-
         public async Task<TaskItem> GetTaskItemAsync (int TaskId)
         {
             var task = await _context.Tasks.FindAsync(TaskId);
             return task;
         }
-        public async Task CreateTaskItemAsync(TaskItem taskItem)
+        public async Task CreateTaskItemAsync(TaskItemRequest taskItemRequest)
         {
+            var taskItem = new TaskItem() {
+                Name = taskItemRequest.Name,
+                Description = taskItemRequest.Description,
+                DeadLine = taskItemRequest.DeadLine,
+                Category = taskItemRequest.Category,
+                Status = taskItemRequest.Status,
+                Priority = taskItemRequest.Priority,
+                UserId = taskItemRequest.UserId
+            };
             await _context.Tasks.AddAsync(taskItem);
             await _context.SaveChangesAsync();
         }
-
 
         public async Task ReadTaskItemAsync(int TaskId)
         {
@@ -41,9 +49,13 @@ namespace ToDo
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateTaskItemAsync(TaskItem taskItem)
+        public async Task UpdateTaskItemAsync(int TaskId, TaskItemRequest taskItemRequest)
         {
-            _context.Entry(taskItem).State = EntityState.Modified;
+            var task = await GetTaskItemAsync(TaskId);
+            task.Name = taskItemRequest.Name;
+            task.Description = taskItemRequest.Description;
+            task.DeadLine = taskItemRequest.DeadLine;
+            _context.Entry(task).State = EntityState.Modified;
             try
             {
                 await _context.SaveChangesAsync();

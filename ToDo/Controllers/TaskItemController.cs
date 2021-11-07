@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ToDo.Models;
+using ToDo.Request;
 
 namespace ToDo.Controllers
 {
@@ -17,16 +18,23 @@ namespace ToDo.Controllers
             _toDoService = toDoService;
         }
 
-        [HttpGet]
+        [HttpGet("{TaskId:int}")]
         public async Task ReadTaskItem(int TaskId)
         {
             await _toDoService.ReadTaskItemAsync(TaskId);
         }
 
-        [HttpPut]
-        public async Task UpdateTaskItem(TaskItem taskItem)
+        [HttpGet]
+        public async Task<IEnumerable<TaskItem>> GetTasks()
         {
-            await _toDoService.UpdateTaskItemAsync(taskItem);
+            var tasks = await _toDoService.GetTasksAsync();
+            return tasks;
+        }
+
+        [HttpPut("{TaskId:int}")]
+        public async Task UpdateTaskItem(int TaskId, TaskItemRequest taskItemRequest)
+        {
+            await _toDoService.UpdateTaskItemAsync(TaskId, taskItemRequest);
         }
 
         [HttpDelete("{TaskId:int}")]
@@ -36,17 +44,14 @@ namespace ToDo.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateTaskItem()
+        public async Task<IActionResult> CreateTaskItem(TaskItemRequest taskItemRequest)
         {
-            TaskItem newTask = new TaskItem();
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
-           await _toDoService.CreateTaskItemAsync(newTask);
-
+           await _toDoService.CreateTaskItemAsync(taskItemRequest);
            return Ok();
         }
-
     }
 }
