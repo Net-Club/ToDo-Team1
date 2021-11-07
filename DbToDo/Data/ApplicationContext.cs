@@ -1,5 +1,4 @@
-﻿using ToDo.Data;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +9,6 @@ namespace ToDo
     public class ApplicationContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-        public DbSet<Category> Categories { get; set; }
         public DbSet<TaskItem> Tasks { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
@@ -20,10 +18,6 @@ namespace ToDo
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
-            modelBuilder.ApplyConfiguration(new UserConfiguration());
-            modelBuilder.ApplyConfiguration(new TaskConfiguration());
-            modelBuilder.ApplyConfiguration(new StatusConfiguration());
             modelBuilder.Entity<User>().HasData(
             new User[]
             {

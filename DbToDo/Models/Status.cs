@@ -12,12 +12,5 @@ namespace ToDo.Models
         NotStarted
 
     }
-    public class Status
-    {
-        public int StatusId { get; set; }
-        public StatusEnum StatusEnum { get; set; }
-
-        public List<TaskItem> Tasks { get; set; }
-    }
 }
 
