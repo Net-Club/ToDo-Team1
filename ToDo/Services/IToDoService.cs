@@ -10,7 +10,6 @@ namespace ToDo
     public interface IToDoService
     {
         Task CreateTaskItemAsync(TaskItemRequest taskItemRequest);
-        Task ReadTaskItemAsync(int TaskId);
         Task UpdateTaskItemAsync(int TaskId, TaskItemRequest taskItemRequest);
         Task DeleteTaskItemAsync (int TaskId);
         Task<IEnumerable<TaskItem>> GetTasksAsync();
