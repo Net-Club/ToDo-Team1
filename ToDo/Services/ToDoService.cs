@@ -49,6 +49,12 @@ namespace ToDo
             task.Name = taskItemRequest.Name;
             task.Description = taskItemRequest.Description;
             task.DeadLine = taskItemRequest.DeadLine;
+            task.UserId = taskItemRequest.UserId;
+            task.Status = taskItemRequest.Status;
+            task.Category = taskItemRequest.Category;
+            task.Description = taskItemRequest.Description;
+            task.DeadLine = taskItemRequest.DeadLine;
+            task.Priority = taskItemRequest.Priority;
             _context.Entry(task).State = EntityState.Modified;
             try
             {
