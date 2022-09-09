@@ -19,4 +19,10 @@ namespace ToDo.Models
         Medium,
         Low
     }
+    public enum StatusSelector
+    {
+        Inprogress,
+        Done,
+        NotStarted
+    }
 }

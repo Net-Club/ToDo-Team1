@@ -19,9 +19,9 @@ namespace ToDo
 
         public async Task<IEnumerable<TaskItem>> GetTasksAsync()
         {
-            IEnumerable<TaskItem> task = await _context.Tasks.ToListAsync();
+            IEnumerable<TaskItem> allTasks = await _context.Tasks.ToListAsync();
 
-            return task;
+            return allTasks;
         }
         public async Task<TaskItem> GetTaskItemAsync (int TaskId)
         {

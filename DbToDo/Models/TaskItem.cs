@@ -13,7 +13,7 @@ namespace ToDo.Models
         public DateTime DeadLine { get; set; }
         public CategorySelector Category { get; set; }
         public PrioritySelector Priority { get; set; }
-        public StatusEnum Status { get; set; }
+        public StatusSelector Status { get; set; }
 
 
         public int UserId { get; set; }
